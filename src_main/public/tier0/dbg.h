@@ -1,4 +1,4 @@
-//===== Copyright © 1996-2005, Valve Corporation, All rights reserved. ========//
+//===== Copyright ?1996-2005, Valve Corporation, All rights reserved. ========//
 //
 // Purpose: 
 //
@@ -290,8 +290,8 @@ DBG_INTERFACE bool DoNewAssertDialog( const tchar *pFile, int line, const tchar 
 #endif // DBGFLAG_ASSERTFATAL
 
 // Assert macros
-// Assert is used to detect an important but survivable error.
-// It's only turned on when DBGFLAG_ASSERT is true.
+// Assert is used to detect an important but survivable error.   // ¼ì²éÖØÒªµ«²»ÖÂÃüµÄ´íÎó
+// It's only turned on when DBGFLAG_ASSERT is true.           // DBGFLAG_ASSERT¿ªÆôÊ±·µ»Ø
 
 #ifdef DBGFLAG_ASSERT
 

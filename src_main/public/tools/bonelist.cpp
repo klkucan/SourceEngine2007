@@ -1,4 +1,4 @@
-//====== Copyright © 1996-2005, Valve Corporation, All rights reserved. =======
+//====== Copyright ?1996-2005, Valve Corporation, All rights reserved. =======
 //
 // Purpose: 
 //
@@ -14,27 +14,27 @@ CBoneList::CBoneList()
 {
 	m_bShouldDelete = false;
 	m_nBones = 0;
-	Q_memset( m_vecPos, 0, sizeof( m_vecPos ) );
-	Q_memset( m_quatRot, 0, sizeof( m_quatRot ) );
+	Q_memset(m_vecPos, 0, sizeof(m_vecPos));
+	Q_memset(m_quatRot, 0, sizeof(m_quatRot));
 }
 
 void CBoneList::Release()
 {
-	if (m_bShouldDelete )
+	if (m_bShouldDelete)
 	{
 		delete this;
 	}
 	else
 	{
-		Warning( "Called Release() on CBoneList not allocated via Alloc() method\n" );
+		Warning("Called Release() on CBoneList not allocated via Alloc() method\n");
 	}
 }
 
 CBoneList *CBoneList::Alloc()
 {
 	CBoneList *newList = new CBoneList;
-	Assert( newList );
-	if ( newList )
+	Assert(newList);
+	if (newList)
 	{
 		newList->m_bShouldDelete = true;
 	}
@@ -45,26 +45,26 @@ CFlexList::CFlexList()
 {
 	m_bShouldDelete = false;
 	m_nNumFlexes = 0;
-	Q_memset( m_flexWeights, 0, sizeof( m_flexWeights ) );
+	Q_memset(m_flexWeights, 0, sizeof(m_flexWeights));
 }
 
 void CFlexList::Release()
 {
-	if (m_bShouldDelete )
+	if (m_bShouldDelete)
 	{
 		delete this;
 	}
 	else
 	{
-		Warning( "Called Release() on CFlexList not allocated via Alloc() method\n" );
+		Warning("Called Release() on CFlexList not allocated via Alloc() method\n");
 	}
 }
 
 CFlexList *CFlexList::Alloc()
 {
 	CFlexList *newList = new CFlexList;
-	Assert( newList );
-	if ( newList )
+	Assert(newList);
+	if (newList)
 	{
 		newList->m_bShouldDelete = true;
 	}

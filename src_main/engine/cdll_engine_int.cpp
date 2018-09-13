@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ?1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -699,6 +699,7 @@ bool CEngineClient::Con_IsVisible( void )
 	return ::Con_IsVisible();
 }
 
+// 
 int CEngineClient::GetLocalPlayer( void )
 {
 	return cl.m_nPlayerSlot + 1;

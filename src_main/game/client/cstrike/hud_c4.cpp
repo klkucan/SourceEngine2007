@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ?1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -56,13 +56,16 @@ void CHudC4::Init()
 }
 
 
+// Tsai 20180913 :ÏÔÊ¾C4Í¼±ê
 bool CHudC4::ShouldDraw()
 {
 	C_CSPlayer *pPlayer = C_CSPlayer::GetLocalCSPlayer();
 
 	// if we are spectating another player first person, check this player
+	//  Tsai 20180913 :Èç¹ûÊÇµÚÒ»ÊÓ½Ç¹Û²ìÄ£Ê½£¬¼ì²éÕâ¸öplayer¶ÔÏó
 	if ( pPlayer && (pPlayer->GetObserverMode() == OBS_MODE_IN_EYE) )
 	{
+		//  Tsai 20180913 :½«¹Û²ìÕßµÄ¶ÔÏó×ª³ÉpPlayerÀàÐÍ
 		pPlayer = ToCSPlayer( pPlayer->GetObserverTarget() );
 	}
 	

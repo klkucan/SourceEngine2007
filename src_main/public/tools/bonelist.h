@@ -1,4 +1,4 @@
-//====== Copyright © 1996-2005, Valve Corporation, All rights reserved. =======
+//====== Copyright ?1996-2005, Valve Corporation, All rights reserved. =======
 //
 // Purpose: 
 //
@@ -12,6 +12,7 @@
 
 #include "studio.h"
 
+// ¿´ÉÏÈ¥ÊÇ¹Ç÷ÀÁÐ±í£¬ºËÐÄÊìÏ¤ÓÐ¼ÇÂ¼¹Ç÷ÀµÄÎ»ÖÃºÍÐý×ª
 class CBoneList
 {
 public:
@@ -25,13 +26,14 @@ public:
 public:
 
 	int			m_nBones;
-	Vector		m_vecPos[ MAXSTUDIOBONES ];
-	Quaternion	m_quatRot[ MAXSTUDIOBONES ];
+	Vector		m_vecPos[MAXSTUDIOBONES];
+	Quaternion	m_quatRot[MAXSTUDIOBONES];
 
 private:
 	bool		m_bShouldDelete;
 };
 
+// ÍäÇúÁÐ±í
 class CFlexList
 {
 public:
@@ -45,7 +47,7 @@ public:
 public:
 
 	int			m_nNumFlexes;
-	float		m_flexWeights[ MAXSTUDIOFLEXCTRL ];
+	float		m_flexWeights[MAXSTUDIOFLEXCTRL];
 
 private:
 	bool		m_bShouldDelete;

@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ?1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -33,6 +33,7 @@ enum ShouldTransmitState_t
 // has all these in them. Left it as an enum in case we want to go back though
 enum DataUpdateType_t
 {
+	// Tsai 20180913 : Ö¸Ê¾±»´´½¨²¢½øÈëµ½PVS£¬ÏÖÔÚ»¹²»ÖªµÀPVSÊÇ¸öÉ¶
 	DATA_UPDATE_CREATED = 0,	// indicates it was created +and+ entered the pvs
 //	DATA_UPDATE_ENTERED_PVS,
 	DATA_UPDATE_DATATABLE_CHANGED,

@@ -1,4 +1,4 @@
-//====== Copyright © 1996-2005, Valve Corporation, All rights reserved. =====//
+//====== Copyright ?1996-2005, Valve Corporation, All rights reserved. =====//
 //
 // Purpose: Client-side CBasePlayer.
 //
@@ -448,6 +448,7 @@ bool C_BasePlayer::IsHLTV() const
 	return ( IsLocalPlayer() && engine->IsHLTV() );	
 }
 
+// 
 CBaseEntity	*C_BasePlayer::GetObserverTarget() const	// returns players targer or NULL
 {
 #ifndef _XBOX
@@ -625,10 +626,19 @@ void C_BasePlayer::PostDataUpdate( DataUpdateType_t updateType )
 	//  on this same frame are not stomped because prediction thinks there
 	//  isn't a local player yet!!!
 
+	//  Tsai 20180913 :Õâ±ØÐë·¢ÉúÔÚÕâ¸öº¯ÊýÖÐ¶ø²»ÊÇOnDataChangedÖÐ£¬
+	//  ÕâÑùÍ¬Ò»Ö¡ÖÐ´´½¨µÄÖ¸ÏòplayerµÄEHandles²»»á±»¸Ç´Á£¬ÒòÎªÔ¤²âÈÏÎª»¹Ã»ÓÐÒ»¸ö±¾µØÍæ¼Ò
 	if ( updateType == DATA_UPDATE_CREATED )
 	{
-		// Make sure s_pLocalPlayer is correct
-
+		// Make sure s_pLocalPlayer is correct  
+		//  Tsai 20180913 : ±£Ö¤s_pLocalPlayerÊÇÕýÈ·µÄ
+		//  int      m_nPlayerSlot;	// slot of HLTV client on game server
+		//  int CEngineClient::GetLocalPlayer( void )
+		//  {
+		//     return cl.m_nPlayerSlot + 1;
+		//  }
+		//  µ«ÊÇ°´ÕÕÕâ¸öÐ´·¨£¬¸Ð¾õPostDataUpdateÕâ¸öº¯ÊýÖ´ÐÐµÄ´ÎÊýÊÇÒ»´Î°¡¡£ÒòÎªÔÚÒýÇæ¶ËÊÇÀÛ¼ÓµÄ£¬Ò»¸öÍæ¼ÒÓ¦¸Ã¾ÍÖ»¼ÓÒ»´Î¡£
+		//  ÕâÀïµÄengine±äÁ¿ÔÚclient¾ÍÊÇCEngineClient
 		int iLocalPlayerIndex = engine->GetLocalPlayer();
 
 		if ( g_nKillCamMode )
@@ -636,11 +646,13 @@ void C_BasePlayer::PostDataUpdate( DataUpdateType_t updateType )
 
 		if ( iLocalPlayerIndex == index )
 		{
+			// Tsai 20180913 : ´ÓÕâ¸öÅÐ¶ÏÉÏÏ£Íûs_pLocalPlayerÊÇnull			
 			Assert( s_pLocalPlayer == NULL );
 			s_pLocalPlayer = this;
 
 			// Reset our sound mixed in case we were in a freeze cam when we
 			// changed level, which would cause the snd_soundmixer to be left modified.
+			// Tsai 20180913 : ÖØÖÃ»ìºÏµÄÉùÒô£¬ÒÔ·ÀÎÒÃÇÔÚ¸ü¸Ä¼¶±ðÊ±ÉãÏñ»ú±»¶³½á£¨Í£Ö¹£©£¬Õâ£¨ÎÒ²ÂÊÇÖ¸µÄÖØÖÃ»ìºÏµÄÉùÒôÕâ¸öÊÂÇé£©½«µ¼ÖÂsnd_soundmixer±»ÐÞ¸Ä¡£
 			ConVar *pVar = (ConVar *)cvar->FindVar( "snd_soundmixer" );
 			pVar->Revert();
 		}
@@ -1563,6 +1575,7 @@ C_BaseAnimating* C_BasePlayer::GetRenderedWeaponModel()
 //-----------------------------------------------------------------------------
 // Purpose: Gets a pointer to the local player, if it exists yet.
 // Output : C_BasePlayer
+// Tsai 20180913: ÔÚ×î¿ªÊ¼Ó¦¸ÃÊÇnullµÄ£¬µ±C_BasePlayer::PostDataUpdateµ÷ÓÃÊ±Ô¤²âÃ»ÓÐ±¾µØÍæ¼Ò£¬È»ºó²ÅÓÐÁËs_pLocalPlayer = this
 //-----------------------------------------------------------------------------
 C_BasePlayer *C_BasePlayer::GetLocalPlayer( void )
 {

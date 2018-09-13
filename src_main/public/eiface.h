@@ -1,4 +1,4 @@
-//===== Copyright © 1996-2005, Valve Corporation, All rights reserved. ======//
+//===== Copyright ?1996-2005, Valve Corporation, All rights reserved. ======//
 //
 // Purpose: 
 //
@@ -125,6 +125,7 @@ public:
 	virtual int			GetEntityCount( void ) = 0;
 	// Given an edict, returns the entity index
 	virtual int			IndexOfEdict( const edict_t *pEdict ) = 0;
+	// Tsai 20180913: ¸øÒ»¸öentity index£¬·µ»ØÒ»¸öÏàÓ¦²¼¸æ£¿Ö¸Õë
 	// Given and entity index, returns the corresponding edict pointer
 	virtual edict_t		*PEntityOfEntIndex( int iEntIndex ) = 0;
 	

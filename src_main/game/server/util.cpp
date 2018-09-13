@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ?1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: Utility code.
 //
@@ -538,7 +538,7 @@ void UTIL_RemoveImmediate( CBaseEntity *oldObj )
 #endif
 }
 
-
+// Tsai 20180913: Í¨¹ýindex·µ»ØÒ»¸öCBaseEntityÖ¸Õë£¬Ö»ÓÐÊÇÍæ¼Ò³öÉú»òÕßÁ¬½Ó²Å·µ»ØÓÐÐ§Öµ£¬ÆäËüÊ±ºò·µ»Ønull£¬Ä¬ÈÏindexÊÇ1
 // returns a CBaseEntity pointer to a player by index.  Only returns if the player is spawned and connected
 // otherwise returns NULL
 // Index is 1 based
@@ -628,10 +628,12 @@ CBasePlayer *UTIL_GetLocalPlayer( void )
 
 //
 // Get the local player on a listen server - this is for multiplayer use only
+// Tsai 20180913: ´Ó¼àÌý·þÎñÆ÷»ñÈ¡±¾µØÍæ¼Ò£¬Ö»ÔÚ¶àÈËÊ±Ê¹ÓÃ
 // 
 CBasePlayer *UTIL_GetListenServerHost( void )
 {
 	// no "local player" if this is a dedicated server or a single player game
+	// Tsai 20180913£ºÈç¹ûÊÇ×¨ÓÃ·þÎñÆ÷»òÕßµ¥Íæ¼ÒÓÎÏ·ÔòÃ»ÓÐ"local player"
 	if (engine->IsDedicatedServer())
 	{
 		Assert( !"UTIL_GetListenServerHost" );

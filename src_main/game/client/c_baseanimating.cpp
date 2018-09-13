@@ -1,4 +1,4 @@
-//===== Copy	right © 1996-2005, Valve Corporation, All rights reserved. ==//
+//===== Copy	right ?1996-2005, Valve Corporation, All rights reserved. ==//
 //
 // Purpose: 
 //
@@ -5640,7 +5640,7 @@ void C_BaseAnimating::GetToolRecordingState( KeyValues *msg )
 
 	// Force the animation to drive bones
 	CStudioHdr *hdr = GetModelPtr();
-	matrix3x4_t *pBones = (matrix3x4_t*)_alloca( ( hdr ? hdr->numbones() : 1 ) * sizeof(matrix3x4_t) );
+	matrix3x4_t *pBones = (matrix3x4_t*)_alloca( ( hdr ? hdr->numbones() : 1 ) * sizeof(matrix3x4_t) ); 
 	if ( hdr )
 	{
 		SetupBones( pBones, hdr->numbones(), BONE_USED_BY_ANYTHING, gpGlobals->curtime );

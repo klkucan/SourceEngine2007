@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ?1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -335,6 +335,7 @@ private:
 
 C_CSPlayer* GetLocalOrInEyeCSPlayer( void );
 
+//  Tsai 20180913 :entity×ª³É¾ßÌå¶ÔÏóC_CSPlayer
 inline C_CSPlayer *ToCSPlayer( CBaseEntity *pEntity )
 {
 	if ( !pEntity || !pEntity->IsPlayer() )

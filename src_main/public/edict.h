@@ -1,4 +1,4 @@
-//========= Copyright © 1996-2005, Valve Corporation, All rights reserved. ============//
+//========= Copyright ?1996-2005, Valve Corporation, All rights reserved. ============//
 //
 // Purpose: 
 //
@@ -159,10 +159,12 @@ private:
 // Purpose: 
 //-----------------------------------------------------------------------------
 // NOTE: YOU CAN'T CHANGE THE LAYOUT OR SIZE OF CBASEEDICT AND REMAIN COMPATIBLE WITH HL2_VC6!!!!!
+// Tasi 20180913: ²»ÒªĞŞ¸Ä²¼¾Ö ºÍ´óĞ¡£¬±£³ÖÓëHL2_VC6µÄ¼æÈİĞÔ¡£
+
 class CBaseEdict
 {
 public:
-
+	// Tasi 20180913: ·µ»ØÒ»¸öIServerEntity£¬Èç¹ûFL_FULLEDICTÉèÖÃ¡£ »òÕß·µ»Ønull£¬Èç¹ûÕâÒ»¸öÇáÁ¿µÄÍøÂçentity¡£
 	// Returns an IServerEntity if FL_FULLEDICT is set or NULL if this 
 	// is a lightweight networking entity.
 	IServerEntity*			GetIServerEntity();
@@ -204,7 +206,7 @@ public:
 #endif	
 
 	// NOTE: this is in the edict instead of being accessed by a virtual because the engine needs fast access to it.
-	int m_NetworkSerialNumber;	// Game DLL sets this when it gets a serial number for its EHANDLE.
+	int m_NetworkSerialNumber;	// Game DLL sets this when it gets a serial number for its EHANDLE.  GameDllÉèÖÃÕâ¸öÖµ£¬µ±Ëü»ñµÃÒ»¸öEHANDLEµÄĞòÁĞÊı×Ö
 
 	// NOTE: this is in the edict instead of being accessed by a virtual because the engine needs fast access to it.
 	IServerNetworkable	*m_pNetworkable;
@@ -406,6 +408,9 @@ inline unsigned short CBaseEdict::GetChangeInfoSerialNumber() const
 // Purpose: The engine's internal representation of an entity, including some
 //  basic collision and position info and a pointer to the class wrapped on top
 //  of the structure
+//
+//  Tsai 20180913: ÒıÇæÄÚ²¿entityµÄ´ú±í£¬°üº¬Ò»Ğ©»ù´¡µÄÅö×²ºÍÎ»ÖÃĞÅÏ¢£¬ÒÔ¼°
+//   Ò»¸öÖ¸ÏòÀà£¨±»°ü×°ÔÚ¼Ü¹¹ÉÏ²ã£©µÄÖ¸Õë¡£
 //-----------------------------------------------------------------------------
 struct edict_t : public CBaseEdict
 {
