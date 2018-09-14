@@ -51,7 +51,7 @@ typedef unsigned short MDLHandle_t;
 
 extern ConVar vcollide_wireframe;
 
-
+// Tsai 2018-9-14 11:40:15 两个矩阵，一个作用在光源一个是模型空间到世界空间的转换。光源这个可能是光源到世界空间，不确定。
 struct ClientModelRenderInfo_t : public ModelRenderInfo_t
 {
 	// Added space for lighting origin override. Just allocated space, need to set base pointer
@@ -61,6 +61,8 @@ struct ClientModelRenderInfo_t : public ModelRenderInfo_t
 	matrix3x4_t modelToWorld;
 };
 
+//  Tsai 2018-9-14 11:51:18
+//  Content: 看上去是与unity中的ragdoll应该是一回事，主要是骨骼的信息
 struct RagdollInfo_t
 {
 	bool		m_bActive;
