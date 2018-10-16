@@ -87,7 +87,7 @@ public:
 typedef unsigned int			ClientSideAnimationListHandle_t;
 
 #define		INVALID_CLIENTSIDEANIMATION_LIST_HANDLE	(ClientSideAnimationListHandle_t)~0
-
+    
 
 class C_BaseAnimating : public C_BaseEntity
 {
@@ -123,7 +123,7 @@ public:
 	virtual float	SetBoneController ( int iController, float flValue );
 
 	LocalFlexController_t GetNumFlexControllers( void );
-	const char *GetFlexDescFacs( int iFlexDesc );
+	const char *GetFlexDescFacs( int iFlexDesc ); 
 	const char *GetFlexControllerName( LocalFlexController_t iFlexController );
 	const char *GetFlexControllerType( LocalFlexController_t iFlexController );
 
